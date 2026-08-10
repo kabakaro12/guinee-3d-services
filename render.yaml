@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: guinee-3d-services
+    runtime: docker
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: guinee-3d-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PAYMENTS_ENABLED
+        value: "false"
+
+databases:
+  - name: guinee-3d-db
+    databaseName: guinee3d
+    user: guinee3d

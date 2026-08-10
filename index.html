@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Guinée 3D Services</title>
+  <meta name="description" content="Désinfection, désinsectisation, dératisation, nettoyage des locaux et pulvérisation en Guinée.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span>3D</span><b>Guinée 3D Services</b></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#reservation">Réserver</a>
+      <button id="accountBtn">Mon compte</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <small>CONAKRY • GUINÉE</small>
+        <h1>Réservez, recevez votre devis et payez en ligne.</h1>
+        <p>Désinfection, désinsectisation, dératisation, nettoyage des locaux et pulvérisation des espaces verts.</p>
+        <div class="actions">
+          <button class="primary" id="registerBtn">Créer mon compte</button>
+          <a class="secondary" href="#reservation">Demander une intervention</a>
+        </div>
+      </div>
+
+      <aside class="preview">
+        <span>Espace client</span>
+        <h3>Devis en GNF</h3>
+        <p>Suivi de la demande, montant validé par l’administrateur et paiement Mobile Money.</p>
+        <div class="providers">
+          <span class="orange">Orange Money</span>
+          <span class="mtn">MTN MoMo</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="wrap">
+      <small>NOS SERVICES</small>
+      <h2>Une prise en charge complète</h2>
+      <div class="cards">
+        <article>🧴<b>Désinfection</b></article>
+        <article>🪳<b>Désinsectisation</b></article>
+        <article>🐀<b>Dératisation</b></article>
+        <article>🧹<b>Nettoyage</b></article>
+        <article>🌿<b>Espaces verts</b></article>
+        <article>💨<b>Pulvérisation</b></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservation" class="section soft">
+    <div class="wrap two">
+      <div>
+        <small>RÉSERVATION</small>
+        <h2>Demandez votre intervention</h2>
+        <p>Connectez-vous, choisissez votre service et envoyez votre demande. Votre devis sera ensuite visible dans votre compte.</p>
+      </div>
+
+      <form id="requestForm" class="panel">
+        <select name="service" required>
+          <option value="">Choisissez un service</option>
+          <option>Désinfection</option>
+          <option>Désinsectisation</option>
+          <option>Dératisation</option>
+          <option>Nettoyage des locaux</option>
+          <option>Pulvérisation espaces verts</option>
+          <option>Pulvérisation professionnelle</option>
+        </select>
+        <input name="location" placeholder="Ville / quartier" required>
+        <input type="date" name="requestedDate" required>
+        <textarea name="details" placeholder="Décrivez votre besoin"></textarea>
+        <button class="primary">Envoyer la demande</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>+224 620 24 29 79</h2>
+      <p>cepssem@gmail.com • WhatsApp disponible</p>
+    </div>
+  </section>
+</main>
+
+<dialog id="authDialog">
+  <button class="x" data-close>×</button>
+  <h2>Compte client</h2>
+  <div class="tabs">
+    <button data-show="login">Connexion</button>
+    <button data-show="register">Inscription</button>
+  </div>
+
+  <form id="loginForm">
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button class="primary">Connexion</button>
+  </form>
+
+  <form id="registerForm" hidden>
+    <input name="name" placeholder="Nom complet" required>
+    <input name="phone" placeholder="Téléphone" required>
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="password" name="password" minlength="8" placeholder="Mot de passe" required>
+    <button class="primary">Créer le compte</button>
+  </form>
+</dialog>
+
+<dialog id="clientDialog">
+  <button class="x" data-close>×</button>
+  <div id="clientContent"></div>
+</dialog>
+
+<dialog id="adminDialog">
+  <button class="x" data-close>×</button>
+  <div id="adminContent"></div>
+</dialog>
+
+<div id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
