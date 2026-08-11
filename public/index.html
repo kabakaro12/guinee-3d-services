@@ -7,28 +7,120 @@
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<header><div class="wrap nav"><div class="brand"><span>3D</span><b>Guinée 3D Services</b></div><nav><a href="#services">Services</a><a href="#reservation">Réserver</a><button id="accountBtn">Mon compte</button></nav></div></header>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span>3D</span><b>Guinée 3D Services</b></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#reservation">Réserver</a>
+      <button id="accountBtn">Mon compte</button>
+    </nav>
+  </div>
+</header>
+
 <main>
-<section class="hero"><div class="wrap hero-grid"><div><small>CONAKRY • GUINÉE</small><h1>Réservez, recevez votre devis et payez en ligne.</h1><p>Désinfection, désinsectisation, dératisation, nettoyage des locaux et pulvérisation des espaces verts.</p><div class="actions"><button class="primary" id="registerBtn">Créer mon compte</button><a class="secondary" href="#reservation">Demander une intervention</a></div></div><aside class="preview"><span>Espace client</span><h3>Devis en GNF</h3><p>Suivi de la demande, montant validé par l’administrateur et paiement Mobile Money.</p><div class="providers"><span class="orange">Orange Money</span><span class="mtn">MTN MoMo</span></div></aside></div></section>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <small>CONAKRY • GUINÉE</small>
+      <h1>Réservez, recevez votre devis et payez en ligne.</h1>
+      <p>Désinfection, désinsectisation, dératisation, nettoyage des locaux et pulvérisation des espaces verts.</p>
+      <div class="actions">
+        <button class="primary" id="registerBtn">Créer mon compte</button>
+        <a class="secondary" href="#reservation">Demander une intervention</a>
+      </div>
+    </div>
+    <aside class="preview">
+      <span>Espace client</span>
+      <h3>Devis en GNF</h3>
+      <p>Suivi de la demande, montant validé par l’administrateur et paiement Mobile Money.</p>
+      <div class="providers">
+        <span class="orange">Orange Money</span>
+        <span class="mtn">MTN MoMo</span>
+      </div>
+    </aside>
+  </div>
+</section>
 
-<section id="services" class="section"><div class="wrap"><small>NOS SERVICES</small><h2>Une prise en charge complète</h2><p class="section-intro">Touchez un service pour découvrir ce que nous vous proposons, notre méthode, nos produits et les retours clients/partenaires.</p><div class="cards">
-<article class="service-card" data-service="desinfection"><div class="service-icon">🧴</div><b>Désinfection</b><span>Maisons, bureaux, commerces et locaux professionnels</span><button>Voir les détails →</button></article>
-<article class="service-card" data-service="desinsectisation"><div class="service-icon">🪳</div><b>Désinsectisation</b><span>Moustiques, cafards, punaises et autres nuisibles</span><button>Voir les détails →</button></article>
-<article class="service-card" data-service="deratisation"><div class="service-icon">🐀</div><b>Dératisation</b><span>Prévention et traitement des rongeurs</span><button>Voir les détails →</button></article>
-<article class="service-card" data-service="nettoyage"><div class="service-icon">🧹</div><b>Nettoyage des locaux</b><span>Bureaux, commerces, maisons et fins de chantier</span><button>Voir les détails →</button></article>
-<article class="service-card" data-service="espaces"><div class="service-icon">🌿</div><b>Espaces verts</b><span>Pulvérisation et traitement des espaces extérieurs</span><button>Voir les détails →</button></article>
-<article class="service-card" data-service="pulverisation"><div class="service-icon">💨</div><b>Pulvérisation</b><span>Entrepôts, grandes surfaces et sites professionnels</span><button>Voir les détails →</button></article>
-</div></div></section>
+<section id="services" class="section">
+  <div class="wrap">
+    <small>NOS SERVICES</small>
+    <h2>Une prise en charge complète</h2>
+    <p class="section-intro">Touchez un service pour voir nos prestations, équipements, méthode d’intervention et retours clients.</p>
+    <div class="cards">
+      <article class="service-card" data-service="desinfection"><div class="service-icon">🧴</div><b>Désinfection</b><span>Maisons, bureaux, commerces et locaux professionnels</span><button>Voir les détails →</button></article>
+      <article class="service-card" data-service="desinsectisation"><div class="service-icon">🪳</div><b>Désinsectisation</b><span>Moustiques, cafards, punaises et autres nuisibles</span><button>Voir les détails →</button></article>
+      <article class="service-card" data-service="deratisation"><div class="service-icon">🐀</div><b>Dératisation</b><span>Prévention et traitement des rongeurs</span><button>Voir les détails →</button></article>
+      <article class="service-card" data-service="nettoyage"><div class="service-icon">🧹</div><b>Nettoyage des locaux</b><span>Bureaux, commerces, maisons et fins de chantier</span><button>Voir les détails →</button></article>
+      <article class="service-card" data-service="espaces"><div class="service-icon">🌿</div><b>Espaces verts</b><span>Pulvérisation et entretien des espaces extérieurs</span><button>Voir les détails →</button></article>
+      <article class="service-card" data-service="pulverisation"><div class="service-icon">💨</div><b>Pulvérisation</b><span>Entrepôts, grandes surfaces et sites professionnels</span><button>Voir les détails →</button></article>
+    </div>
+  </div>
+</section>
 
-<section id="reservation" class="section soft"><div class="wrap two"><div><small>RÉSERVATION</small><h2>Demandez votre intervention</h2><p>Connectez-vous, choisissez votre service et envoyez votre demande. Votre devis sera ensuite visible dans votre compte.</p></div><form id="requestForm" class="panel"><select name="service" id="serviceSelect" required><option value="">Choisissez un service</option><option>Désinfection</option><option>Désinsectisation</option><option>Dératisation</option><option>Nettoyage des locaux</option><option>Pulvérisation espaces verts</option><option>Pulvérisation professionnelle</option></select><input name="location" placeholder="Ville / quartier" required><input type="date" name="requestedDate" required><textarea name="details" placeholder="Décrivez votre besoin"></textarea><button class="primary">Envoyer la demande</button></form></div></section>
+<section id="reservation" class="section soft">
+  <div class="wrap two">
+    <div>
+      <small>RÉSERVATION</small>
+      <h2>Demandez votre intervention</h2>
+      <p>Connectez-vous, choisissez votre service et envoyez votre demande. Votre devis sera ensuite visible dans votre compte.</p>
+    </div>
+    <form id="requestForm" class="panel">
+      <select name="service" id="serviceSelect" required>
+        <option value="">Choisissez un service</option>
+        <option>Désinfection</option>
+        <option>Désinsectisation</option>
+        <option>Dératisation</option>
+        <option>Nettoyage des locaux</option>
+        <option>Pulvérisation espaces verts</option>
+        <option>Pulvérisation professionnelle</option>
+      </select>
+      <input name="location" placeholder="Ville / quartier" required>
+      <input type="date" name="requestedDate" required>
+      <textarea name="details" placeholder="Décrivez votre besoin"></textarea>
+      <button class="primary">Envoyer la demande</button>
+    </form>
+  </div>
+</section>
 
-<section class="contact"><div class="wrap"><h2>+224 620 24 29 79</h2><p>cepssem@gmail.com • WhatsApp disponible</p></div></section>
+<section class="contact">
+  <div class="wrap">
+    <h2>+224 620 24 29 79</h2>
+    <p>cepssem@gmail.com • WhatsApp disponible</p>
+  </div>
+</section>
 </main>
 
-<dialog id="serviceDialog" class="service-dialog"><button class="x" id="closeService">×</button><div id="serviceDetails"></div></dialog>
-<dialog id="authDialog"><button class="x" data-close>×</button><h2>Compte client</h2><div class="tabs"><button data-show="login">Connexion</button><button data-show="register">Inscription</button></div><form id="loginForm"><input type="email" name="email" placeholder="E-mail" required><input type="password" name="password" placeholder="Mot de passe" required><button class="primary">Connexion</button></form><form id="registerForm" hidden><input name="name" placeholder="Nom complet" required><input name="phone" placeholder="Téléphone" required><input type="email" name="email" placeholder="E-mail" required><input type="password" name="password" minlength="8" placeholder="Mot de passe" required><button class="primary">Créer le compte</button></form></dialog>
+<dialog id="serviceDialog" class="service-dialog">
+  <button class="x" id="closeService">×</button>
+  <div id="serviceDetails"></div>
+</dialog>
+
+<dialog id="authDialog">
+  <button class="x" data-close>×</button>
+  <h2>Compte client</h2>
+  <div class="tabs">
+    <button data-show="login">Connexion</button>
+    <button data-show="register">Inscription</button>
+  </div>
+  <form id="loginForm">
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button class="primary">Connexion</button>
+  </form>
+  <form id="registerForm" hidden>
+    <input name="name" placeholder="Nom complet" required>
+    <input name="phone" placeholder="Téléphone" required>
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="password" name="password" minlength="8" placeholder="Mot de passe" required>
+    <button class="primary">Créer le compte</button>
+  </form>
+</dialog>
+
 <dialog id="clientDialog"><button class="x" data-close>×</button><div id="clientContent"></div></dialog>
 <dialog id="adminDialog"><button class="x" data-close>×</button><div id="adminContent"></div></dialog>
+
 <div id="toast"></div>
 <script src="/app.js"></script>
-</body></html>
+</body>
+</html>
