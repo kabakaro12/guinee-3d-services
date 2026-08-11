@@ -75,7 +75,24 @@
         <option>Pulvérisation espaces verts</option>
         <option>Pulvérisation professionnelle</option>
       </select>
-      <input name="location" placeholder="Ville / quartier" required>
+      <select name="location" id="locationSelect" required>
+        <option value="">Choisissez votre commune / zone</option>
+        <option>Kaloum</option>
+        <option>Dixinn</option>
+        <option>Matam</option>
+        <option>Matoto</option>
+        <option>Ratoma</option>
+        <option>Gbéssia</option>
+        <option>Tombolia</option>
+        <option>Lambanyi</option>
+        <option>Sonfonia</option>
+        <option>Kagbélén</option>
+        <option>Sanoyah</option>
+        <option>Manéah</option>
+        <option>Kassa</option>
+        <option value="Autre">Autre — extérieur de Conakry</option>
+      </select>
+      <input name="otherLocation" id="otherLocation" placeholder="Précisez la ville / préfecture" hidden>
       <input type="date" name="requestedDate" required>
       <textarea name="details" placeholder="Décrivez votre besoin"></textarea>
       <button class="primary">Envoyer la demande</button>
@@ -85,8 +102,10 @@
 
 <section class="contact">
   <div class="wrap">
-    <h2>+224 620 24 29 79</h2>
-    <p>cepssem@gmail.com • WhatsApp disponible</p>
+    <h2>+224 624 03 39 89</h2>
+    <p><a href="mailto:3services.gn@gmail.com">3services.gn@gmail.com</a></p>
+    <a class="whatsapp-btn" href="https://wa.me/224624033989?text=Bonjour%20Guin%C3%A9e%203D%20Services%2C%20je%20souhaite%20des%20informations." target="_blank" rel="noopener">💬 Nous contacter sur WhatsApp</a>
+    <p class="copyright">© 2026 Guinée 3D Services. Tous droits réservés.</p>
   </div>
 </section>
 </main>
