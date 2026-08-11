@@ -6,14 +6,20 @@ import jwt from "jsonwebtoken";
 import pg from "pg";
 import crypto from "node:crypto";
 import "dotenv/config";
-
+import nodemailer from "nodemailer";
 const app = express();
 const { Pool } = pg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
-
+const transporter = nodemailer.createTransport({
+  service:"gmail",
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  }
+});
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: "100kb" }));
 app.use(rateLimit({
@@ -178,8 +184,58 @@ app.post("/api/requests", auth, async (req, res) => {
      RETURNING *`,
     [id, req.user.id, service, location, requestedDate, details || ""]
   );
+try {
+  const userResult = await pool.query(
+    "SELECT name, phone, email FROM users WHERE id=$1",
+    [req.user.id]
+  );
 
-  res.status(201).json({ request: result.rows[0] });
+  const client = userResult.rows[0];
+
+  await transporter.sendMail({
+    from: `"Guinée 3D Services" <${process.env.SMTP_USER}>`,
+    to: process.env.NOTIFICATION_EMAIL,
+    subject: `Nouvelle demande : ${service}`,
+    html: `
+      <h2>Nouvelle demande d'intervention</h2>
+      <p><strong>Client :</strong> ${client?.name || "Non renseigné"}</p>
+      <p><strong>Téléphone :</strong> ${client?.phone || "Non renseigné"}</p>
+      <p><strong>E-mail :</strong> ${client?.email || "Non renseigné"}</p>
+      <p><strong>Service :</strong> ${service}</p>
+      <p><strong>Lieu :</strong> ${location}</p>
+      <p><strong>Date :</strong> ${requestedDate}</p>
+      <p><strong>Détails :</strong> ${details || "Aucun détail"}</p>
+      <p><strong>Statut :</strong> Demande reçue</p>
+    `
+  });
+
+  if (client?.email) {
+    await transporter.sendMail({
+      from: `"Guinée 3D Services" <${process.env.SMTP_USER}>`,
+      to: client.email,
+      subject: "Votre demande a bien été reçue",
+      html: `
+        <h2>Bonjour ${client.name || ""},</h2>
+        <p>Votre demande auprès de <strong>Guinée 3D Services</strong> a bien été enregistrée.</p>
+        <p><strong>Service :</strong> ${service}</p>
+        <p><strong>Lieu :</strong> ${location}</p>
+        <p><strong>Date demandée :</strong> ${requestedDate}</p>
+        <p>Statut : <strong>Demande en cours de traitement</strong>.</p>
+        <p>Nous vous contacterons dès que votre devis sera disponible.</p>
+        <hr>
+        <p>
+          Guinée 3D Services<br>
+          +224 624 03 39 89<br>
+          3services.gn@gmail.com
+        </p>
+      `
+    });
+  }
+} catch (mailError) {
+  console.error("Erreur notification email :", mailError);
+}
+  res.status(201).json({ request: result.rows[0] })
+  
 });
 
 app.get("/api/requests", auth, async (req, res) => {
