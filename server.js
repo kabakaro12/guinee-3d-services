@@ -7,7 +7,9 @@ import pg from "pg";
 import crypto from "node:crypto";
 import "dotenv/config";
 import nodemailer from "nodemailer";
+import { Resend } from "resend";
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
 const { Pool } = pg;
 
 const pool = new Pool({
@@ -192,8 +194,8 @@ try {
 
   const client = userResult.rows[0];
 
-  await transporter.sendMail({
-    from: `"Guinée 3D Services" <${process.env.SMTP_USER}>`,
+  await resend.emails.send({
+    from :"Guinée 3D Services <onboarding@resend.dev>",
     to: process.env.NOTIFICATION_EMAIL,
     subject: `Nouvelle demande : ${service}`,
     html: `
@@ -210,8 +212,8 @@ try {
   });
 
   if (client?.email) {
-    await transporter.sendMail({
-      from: `"Guinée 3D Services" <${process.env.SMTP_USER}>`,
+    await resend.emails.send({
+      from:"Guinée 3D Services <onboarding@resend.dev>",
       to: client.email,
       subject: "Votre demande a bien été reçue",
       html: `
